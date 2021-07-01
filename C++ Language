@@ -1,9 +1,75 @@
 【C++】
 
-1.以C 为基础，可视为一种联邦语言
+以C 为基础，可视为一种联邦语言
 
-2.面向对象编程 OOC Object-Oriented C++
+1.C： procedural 语句块 数据类型 指针
 
-3.泛型编程 Templale C++
+2.Object-Oriented C++： 面向对象编程 OOC 
 
-4.STL库
+3.Template C++： 泛型编程 generic  
+
+4.STL： standard template library
+
+【C++ basic】
+
+语法：；{} /* */ //
+
+数据类型：bool char int float double void wchr_t enum
+变量类型：任何数据类型 左值 右值
+变量作用域： 局部 全局
+常量：任何数据类型 #define const
+
+修饰符类型：signed unsigned short long 类型限定符：const volatile restrict
+存储类：auto register static extern mutable thread_local
+
+运算符：算数 关系 逻辑 位运算 赋值 杂项
+
+循环：while for do..while break continue goto
+判断：if if..else switch 条件语句
+
+函数：返回类型 函数名称 参数（传值 指针 引用） 函数主体 lambda
+
+数字：数学运算<cmath> 随机数rand() srand()
+数组：double array[5][2]={{.....} ,{.....}}; 多维数组 数组指针
+字符串： char str[4]="abc";  string str="abc";
+		 null 字符 \0 终止的一维字符数组 strcpy() strcat() strlen() strcmp() strchr() strstr()
+
+指针：ip = &a 变量内存地址  *ip 变量值
+	  空指针 *ptr=NULL;
+	  指针算数运算 ptr++;
+	  数组指针 *(var+2)=500; ptr=var; ptr++;
+	  指针数组 int *ptr[5]; char *names[5];
+	  指针的指针 **ptr
+	  传指针给函数 void function(int *ptr){}
+	  函数返回指针 int * function(){}
+
+引用：区分：变量值 变量名 指针变量 引用变量
+	  不存在空引用 创建时必须初始化 只能一直指向同一个对象
+	  引用作为参数 void swap(int& x, int& y)
+	  引用作为返回值 int& func()
+
+日期 时间：<ctime> clock_t time_t size_t tm
+I/O：<iostream> <iomainip> <fstream>
+
+数据结构：存储不同类型的数据项
+		  struct Books{char title[5];char author[5];int book_id;}book1; book1.title;
+		  结构指针 struct Books *struct_ptr; struct_ptr=&book1; struct_ptr->title;
+
+【C++ OOC】
+
+类：class Box{double set();};   void Box::set(){}   Box box1;   Box.set();
+	成员变量
+	成员函数 非虚函数 范围解析运算符 :: 类内定义的函数自动成为内联函数，类外可inline void Foo(){}
+	构造函数 class Line{ Line(); };  Line::Line(double len):length(len){}
+	析构函数 class Line{ ~Line();};  都是针对对象的
+	拷贝构造函数 class Line{ Line(const Line& obj);};  Line Line2 = Line1;  用旧对象来初始化新对象
+	友元函数 class Line{ friend void set(); friend class Dot;}; 定义在类外部，但有权访问类的所有私有（private）成员和保护（protected）成员,并不是成员函数
+	内联函数 inline 编译器用空间换时间
+	this指针 Box* p; 指向对象的地址，this 指针是所有成员函数的隐含参数 this->function()
+	类指针 Box* p
+	静态成员 static int a; 静态成员只有一个副本  static int getCount(){} 静态成员函数即使在类对象不存在的情况下也能被调用
+	访问修饰符 public 类外也可访问 
+			   protected 派生类也可访问
+			   private 仅类内可访问 友元函数可访问
+
+继承：
